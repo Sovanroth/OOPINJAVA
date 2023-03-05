@@ -5,8 +5,8 @@ public class Invoice {
     private double pricePerItem;
 
     public Invoice(String partNumber, String partDescription, int quantity, double pricePerItem) {
-        this.partNumber = partNumber;
-        this.partDescription = partDescription;
+        setPartNumber(partNumber);
+        setPartDescription(partDescription);
         setQuantity(quantity);
         setPricePerItem(pricePerItem);
     }
@@ -32,11 +32,7 @@ public class Invoice {
     }
 
     public void setQuantity(int quantity) {
-        if (quantity > 0) {
-            this.quantity = quantity;
-        } else {
-            this.quantity = 0;
-        }
+        this.quantity = Math.max(quantity, 0);
     }
 
     public double getPricePerItem() {
@@ -44,11 +40,7 @@ public class Invoice {
     }
 
     public void setPricePerItem(double pricePerItem) {
-        if (pricePerItem > 0.0) {
-            this.pricePerItem = pricePerItem;
-        } else {
-            this.pricePerItem = 0.0;
-        }
+        this.pricePerItem = Math.max(pricePerItem, 0.0);
     }
 
     public double getInvoiceAmount() {
