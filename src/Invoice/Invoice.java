@@ -1,3 +1,5 @@
+package Invoice;
+
 public class Invoice {
     private String partNumber;
     private String partDescription;
